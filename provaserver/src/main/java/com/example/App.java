@@ -14,16 +14,16 @@ public class App
         Socket s = ss.accept();
         System.out.println("Client connesso");
 
-        PrintWriter pr = new PrintWriter(s.getOutputStream());
-        pr.println("inserisci il peso: ");
+        System.out.println("caiooo");
+        PrintWriter invioPeso = new PrintWriter(s.getOutputStream());
+        invioPeso.println("inserisci il peso: ");
 
         InputStreamReader in = new InputStreamReader(s.getInputStream());
         BufferedReader br = new BufferedReader(in);
         String str = br.readLine();
         System.out.println("Client: " + str);
 
-        
-        pr.flush();
+   
         s.close();
         ss.close();
 

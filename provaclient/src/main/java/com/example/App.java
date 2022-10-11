@@ -11,20 +11,23 @@ public class App
         Socket s = new Socket("localhost", 3000);
         PrintWriter pr = new PrintWriter(s.getOutputStream());
 
+        System.out.print("caiooo");
+        
+        InputStreamReader RicercaMessagioPeso = new InputStreamReader(s.getOutputStream());
+        
+        BufferedReader MessagioServerPesoLetto = new BufferedReader(RicercaMessagioPeso);
+
+        String MessagioPeso = MessagioServerPesoLetto.readLine();
+        System.out.println("Server: " + MessagioPeso);
+
+
 
         BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
-
-        InputStreamReader in = new InputStreamReader(s.getInputStream());
-        
-        BufferedReader br = new BufferedReader(in);
-
-        String str = br.readLine();
-        System.out.println("Server: " + str);
 
         String stringaUtente = tastiera.readLine();
         
         pr.println(stringaUtente);
-        pr.flush();
+    
 
         
        
